@@ -22,7 +22,6 @@ const Map = () => {
         longitude: location["coords"]["longitude"],
         ...delta,
       });
-      console.log(location);
 
       setCurrent(
         <Marker
@@ -35,8 +34,6 @@ const Map = () => {
           pinColor="#55B3AE"
         />
       );
-
-      console.log(current);
     })();
   }, []);
 
