@@ -1,42 +1,50 @@
 import React, { useEffect, useState } from "react";
 import { View, StyleSheet } from "react-native";
 import MapView, { Marker } from "react-native-maps";
-// import Geolocation from "react-native-geolocation-service";
+import * as Location from "expo-location";
 
 const Map = () => {
-  const [region, setRegion] = useState({});
+  const [location, setLocation] = useState({});
+  const [current, setCurrent] = useState(null);
   const delta = { latitudeDelta: 0.0922, longitudeDelta: 0.0421 };
-  const current = (
-    <Marker
-      coordinate={{
-        latitude: region.latitude,
-        longitude: region.longitude,
-      }}
-      title="You are here!"
-      pinColor="#55B3AE"
-    />
-  );
 
   useEffect(() => {
-    // Geolocation.getCurrentPosition(
-    //   (position) => {
-    //     setRegion({
-    //       latitude: position["coords"]["latitude"],
-    //       longitude: position["coords"]["longitude"],
-    //       ...delta,
-    //     });
-    //   },
-    //   (error) => {
-    //     // See error code charts below.
-    //     console.log(error.code, error.message);
-    //   },
-    //   { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
-    // );
+    (async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        setErrorMsg("Permission to access location was denied");
+        return;
+      }
+
+      let location = await Location.getCurrentPositionAsync({});
+      setLocation({
+        latitude: location["coords"]["latitude"],
+        longitude: location["coords"]["longitude"],
+        ...delta,
+      });
+      console.log(location);
+
+      setCurrent(
+        <Marker
+          coordinate={{
+            latitude: location["coords"]["latitude"],
+            longitude: location["coords"]["longitude"],
+            ...delta,
+          }}
+          title="You are here!"
+          pinColor="#55B3AE"
+        />
+      );
+
+      console.log(current);
+    })();
   }, []);
 
   return (
     <View style={styles.map_container}>
-      <MapView region={region} style={styles.map}>{current}</MapView>
+      <MapView region={location} style={styles.map}>
+        {current}
+      </MapView>
     </View>
   );
 };
