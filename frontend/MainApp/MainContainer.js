@@ -46,18 +46,29 @@ export default function MainContainer() {
 
                 headerShown: false,
 
+                tabBarActiveTintColor: "#55B3AE",
+                tabBarInactiveTintColor: "grey",
+                tabBarStyle: [
+                    {          
+                    display: "flex"
+                },
+                    null
+            ]
+
 
             })}
 
             
             
-            tabBarOptions={{
-                activeTintColor: '#55B3AE',
-                inactiveTintColor: 'grey',
-                style: {
-                    backgroundColor: 'grey',
-                }
-            }}
+            // tabBarOptions={{
+            //     activeTintColor: '#55B3AE',
+            //     inactiveTintColor: 'grey',
+            //     style: {
+            //         backgroundColor: 'grey',
+            //     }
+            // }}
+
+            
 
 
 
