@@ -25,7 +25,7 @@ CREATE TABLE `wastedb`.`location` (
   `latitude` FLOAT NULL,
   `longitude` FLOAT NULL,
   PRIMARY KEY (`post_id`),
-FOREIGN KEY (`post_id`) REFERENCES `wastedb`.`post`(`id`);
+FOREIGN KEY (`post_id`) REFERENCES `wastedb`.`post`(`id`));
 
 CREATE TABLE `wastedb`.`bins` (
   `bid` INT NOT NULL,
