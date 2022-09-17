@@ -3,10 +3,12 @@ import { StyleSheet, Text, View } from 'react-native';
 import Ionic from "react-native-vector-icons/Ionicons"
 import * as React from 'react';
 import MainContainer from './MainApp/MainContainer'
+import Login from "./Login.js"
+import Signup from "./Signup.js"
 
 export default function App() {
   return (
-    <MainContainer/>
+    <Signup/>
   );
 }
 
