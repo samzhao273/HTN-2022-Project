@@ -10,6 +10,23 @@ const Map = () => {
   const delta = { latitudeDelta: 0.0922, longitudeDelta: 0.0421 };
 
   useEffect(() => {
+    fetch(`http://localhost:3000/bins`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then(async (res) => {
+      try {
+        const jsonRes = await res.json();
+
+        setBins(jsonRes);
+      } catch (err) {
+        console.log(err);
+      }
+    });
+  }, []);
+
+  useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== "granted") {
@@ -23,29 +40,10 @@ const Map = () => {
         longitude: location["coords"]["longitude"],
         ...delta,
       });
-      console.log('LOCATION 1', location);
     })();
-
-    fetch(`http://localhost:3000/bins`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then(async (res) => {
-      try {
-        const jsonRes = await res.json();
-        console.log('JSON RES', jsonRes);
-        console.log('first');
-        setBins(jsonRes);
-        console.log('second');
-        console.log('BINS :', bins);
-        console.log('next');
-      } catch (err) {
-        console.log(err);
-      }
-    });
   }, []);
 
+  // for current marker
   useEffect(() => {
     setCurrent(
       <Marker
@@ -64,18 +62,17 @@ const Map = () => {
     <View style={styles.map_container}>
       <MapView region={location} style={styles.map}>
         {current}
-        {bins.map((bin) => {
+        {bins.map((bin) => (
           <Marker
-            key={parseInt(bin["bid"])}
+            key={bin["bid"]}
             coordinate={{
-              latitude: location["latitude"],
-              longitude: location["longitude"],
+              latitude: bin["latitude"],
+              longitude: bin["longitude"],
             }}
             pinColor="#D75B5B"
             title="Donation Bin"
-          />;
-        })}
-        {console.log("LOCATION 2: ", location)}
+          />
+        ))}
       </MapView>
     </View>
   );
