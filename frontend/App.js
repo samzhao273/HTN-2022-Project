@@ -5,6 +5,7 @@ import * as React from 'react';
 import MainContainer from './MainApp/MainContainer'
 import Login from "./Login.js"
 import Signup from "./Signup.js"
+import EditScreen from './MainApp/screens/EditScreen';
 
 export default function App() {
   return (

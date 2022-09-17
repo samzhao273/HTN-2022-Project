@@ -2,6 +2,7 @@ import * as Reach from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Image ,TextInput, TouchableOpacity, ScrollView} from 'react-native';
 import Info from './ProfileComponents/Info';
 import Edit from './ProfileComponents/Edit';
+import EditScreen from './EditScreen';
 
 
 export default function ProfileScreen({navigation}) {
