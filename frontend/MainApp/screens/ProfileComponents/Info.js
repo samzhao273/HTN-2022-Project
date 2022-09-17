@@ -4,10 +4,11 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const Info = () => {
     return (
-        <View styles={styles.container}>
+        <View style={styles.container}>
+ 
             <Image 
-            source={require('./favicon.png')}  // have to make this editable in back end - all these components
-            style={{width: 83, height: 83, borderRadius: 400/ 2}} 
+                source={require('./favicon.png')}  // have to make this editable in back end - all these components
+                style={{ width: 83, height: 83, borderRadius: 400/ 2}} 
             />
 
             <Text style={styles.Username}>Samz</Text> 
@@ -28,38 +29,42 @@ const Info = () => {
 const styles = StyleSheet.create({
 
     container:{
-        flex: 1,
-        display: 'flex',
-        alignItems: 'center',
-       
-        
-        
-
-
+        // flex: 1, 
+        // backgroundColor:'red',
+        alignSelf: 'center',
 
     },
 
+
     profileImage: {
+        flex: 1,
+        flexDirection: 'row',
+        // backgroundColor: 'lightgray',
         justifyContent: 'center',
         alignItems: 'center',
-
+        
     },
 
     Username:{
-       
+        fontWeight: 'bold',
+        justifyContent: 'center',
+        textAlign: 'center',
+        marginTop: 20
 
     },
 
     Measurements:{
         justifyContent: 'center',
-        alignItems: 'center',
-
+        textAlign: 'center',
+        color: '#A7A7A7',
+        marginTop: 5
     },
 
     Counter:{
         justifyContent: 'center',
-        alignItems: 'center',
-
+        textAlign: 'center',
+        color: '#55B3AE',
+        marginTop: 3
     }
 
     

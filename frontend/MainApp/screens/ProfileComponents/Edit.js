@@ -6,14 +6,15 @@ const Edit = () => {
     return(
         <TouchableHighlight onPress = {() => {alert('this is going to the edit screen')}}>
             <View>
-                <Ionicons name = "pencil"></Ionicons>
+                <Ionicons name = "pencil" size={25} color='#55B3AE'></Ionicons>
             </View>
-
-
-
         </TouchableHighlight>
 
     )
 }
+
+const styles = StyleSheet.create({
+    
+})
 
 export default Edit;
