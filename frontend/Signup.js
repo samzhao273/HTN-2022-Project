@@ -4,6 +4,62 @@ import { StyleSheet, Text, View, SafeAreaView, Image ,TextInput, TouchableOpacit
 import { useState } from 'react';
  
 export default function signup() {
+
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const [message, setMessage] = useState('');
+
+  const onSignUp = () => {
+    console.log("AAAAAA")
+    const payload = {
+      username,
+      email,
+      password
+    };
+      fetch(`http://localhost:2000/signup`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      }).then(async res => { 
+        try {
+            console.log(await res.text());
+         
+            if (res.status === 200) {
+                setMessage(jsonRes.message);
+            }
+        } catch (err) {
+            console.log(err);
+        };
+    })
+    .catch(err => {
+        console.log(err);
+    });
+
+    // const request = {
+    //   method: 'POST',
+    //   headers: { Accept: 'application/json',
+    //             'Content-Type' : 'application/json'},
+    //   body: JSON.stringify(payload)
+    //   }
+    //   console.log(request)
+    //   fetch(`http://localhost:2000/signup`, request)
+    //   .then(async response => {
+    //     const isJson = response.headers.get('content-type')?.includes('application/json');
+    //     const data = isJson && await response.json();
+    //     if (!response.ok) {
+    //       const error = (data && data.message) || response.status;
+    //       return Promise.reject(error);
+    //     }
+    //   }).catch(error => {
+    //     console.error("there was an error", error)
+    //   });
+    }
+  
+
   return (
     <SafeAreaView style={styles.container}>
 
@@ -17,11 +73,17 @@ export default function signup() {
       <Text style = {styles.LogInText}> Sign Up</Text>
 
     <View style = {styles.usernameInput}>
-      <TextInput placeholder='Username'  />
+      <TextInput placeholder='Username'  
+        onChangeText = {setUsername}
+      />
+
       </View>
 
       <View style = {styles.emailInput}>
-      <TextInput placeholder='Email'  />
+      <TextInput placeholder='Email'  
+          onChangeText = {setEmail}
+      />
+
       </View>
 
       
@@ -33,18 +95,14 @@ export default function signup() {
 
       <View style = {styles.confirmPasswordInput}>
       <TextInput placeholder='ConfirmPassword'  
+          onChangeText = {setPassword}
           secureTextEntry/>
       </View>
-
-
-      
-     
-
-  
 
         <TouchableOpacity 
         onPress={() => {
           console.warn('sign up pressed')
+          onSignUp();
         }} 
         style = {styles.buttonRegister}
         >
@@ -125,7 +183,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
 
   },
-
 
   emailInput: {
     position: 'absolute',
