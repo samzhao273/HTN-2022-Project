@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, SafeAreaView, Image ,TextInput, TouchableOpacit
 import Info from './ProfileComponents/Info';
 import Edit from './ProfileComponents/Edit';
 import Posting from './GeneralComponents/Posting';
+import Add from './ProfileComponents/Add';
 import {Postings} from './ProfileComponents/DummyPostData/Postings'
 
 export default function ProfileScreen({navigation}) {
@@ -18,14 +19,21 @@ export default function ProfileScreen({navigation}) {
             <Info />
           </View>
 
-          <View style={styles.Edit}>
+          <View style={styles.Button}>
+            <Add/>
+          </View>
+
+          <View style={styles.Button}>
             <Edit/>
           </View>
+
         {/* <Text onPress={() => alert('this is the Profile Screen')}>ProfileScreen</Text> */}
 
-        {Postings.map((posting,index) => (
-          <Posting posting = {posting} key = {index} />
-        ))}
+          <View style={styles.PostingContainer}>
+            {Postings.map((posting,index) => (
+              <Posting posting = {posting} key = {index} />
+            ))}
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -36,46 +44,31 @@ export default function ProfileScreen({navigation}) {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1, 
-    backgroundColor:'white',
-    height: 350
+    backgroundColor:'white'
   },
 
   Image: {
-    // flexDirection: 'row',
-    // justifyContent: "flex-start",
     marginTop: -90,
     width: 40,
     resizeMode: 'contain',
-    // top:40,
     left:45,
     position: 'absolute',
   },
 
   Info:{
-    // position: 'absolute',
-    // flexDirection: 'row',
-    // marginTop: 80,
-    // paddingTop: 200,
-    // width: 109,
-    // height: 155,
-    // left: 158,
     top: 100,
     alignself: 'center'
 
   },
-  PostingContainer:{
-    // margin:10,
-    // flexDirection: 'column',
-    // justifyContent:'space-around',
-    // alignItems: 'center',
 
+  PostingContainer:{
+    top: 25,
 
   },
-  Edit: {
+
+  Button: {
     left: 300,
-    // size:50,
-    // resizeMode:'contain'
+    marginTop: 5
   }
 
 
