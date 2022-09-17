@@ -81,4 +81,15 @@ router.post("/login", (req, res)=> {
       }) //end of db.connection()
       }) //end of app.post()
 
+  router.post('/addListing', (req, res) => {
+
+  });
+
+  router.post('/removeListing', (req, res) => {
+    
+  });
+
+
+  
+
 module.exports = router;
