@@ -53,7 +53,7 @@ const Map = () => {
           ...delta,
         }}
         title="You are here!"
-        pinColor="#55B3AE"
+        image={require('../../../assets/current-icon.png')}
       />
     );
   }, [location]);
