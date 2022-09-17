@@ -34,11 +34,7 @@ const PostingHeader = () => (
             </View>
         </TouchableHighlight>
 
-        <TouchableHighlight onPress = {() => {alert('this is a plus button idk what for joanne')}}>
-            <View>
-                <Ionicons name = "trash"></Ionicons>
-            </View>
-        </TouchableHighlight>
+    
 
     </View>
 )

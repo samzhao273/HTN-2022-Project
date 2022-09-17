@@ -10,7 +10,7 @@ export const Postings =[
         type: 'T-Shirt',
         brand: 'Zara',
         Size: 'XXXL',
-        description: "quite cute tbh didnt want it anymore",
+        description: "quite cute  didnt want it anymore",
 
     },
 
