@@ -10,7 +10,6 @@ const Edit = () => {
             </View>
 
 
-
         </TouchableHighlight>
 
     )
