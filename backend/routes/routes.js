@@ -81,12 +81,62 @@ router.post("/login", (req, res)=> {
       }) //end of app.post()
 
   router.post('/addListing', (req, res) => {
+    const username = req.body.username
+    const type = req.body.type
+    const brand = req.body.brand
+    const size = req.body.size
+    const gender = req.body.gender
+    const tags = req.body.tags
+    const caption = req.body.caption
+    const user_id = null;
+    con.getConnection( async (err, connection) => {
+      if (err) throw (err)
+      const retrieveID = "SELECT user_id FROM user WHERE user.username = ?"
+      const search_query =  mysql.format(sqlSearch,[username])
+      
+      await connection.query (search_query, async (err, result) => { 
+            if (err) throw (err)
+            user_id = result[0]
+      });
+
+      const sqlInsert = "INSERT INTO post VALUES (?,0,?,?,?,?,?,?,?)"
+      const insert_query = mysql.format(sqlInsert,[user_id, type, brand, size, gender, tags, caption])
+
+      await connection.query (insert_query, async (err, result) => { 
+        if (err) throw (err)
+        console.log("---------> Success")
+      });
+
+
+    })
 
   });
+
+
 
   router.post('/removeListing', (req, res) => {
-    
+
+    const type = req.body.type
+    const brand = req.body.brand
+    const size = req.body.size
+    const gender = req.body.gender
+    const tags = req.body.tags
+    const caption = req.body.caption
+
+    // find the post id associated with the user
+
+  const deletequery = "DELETE FROM post WHERE post....."
+
+  con.getConnection( async (err, connection) => {
+  await connection.query (search_query, async (err, result) => { 
+    if (err) throw (err)
+    user_id = result[0]
+});
+
+  
   });
+}
+  );
 
 
   
