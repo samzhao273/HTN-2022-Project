@@ -1,13 +1,15 @@
-import * as Reach from 'react';
-import { StyleSheet, Text, View, SafeAreaView, Image ,TextInput, TouchableOpacity} from 'react-native';
+import * as React from 'react';
+import { StyleSheet, Text, View, SafeAreaView, Image ,TextInput, TouchableOpacity, ScrollView} from 'react-native';
 import Info from './ProfileComponents/Info';
 import Edit from './ProfileComponents/Edit';
-
+import Posting from './GeneralComponents/Posting';
+import {Postings} from './ProfileComponents/DummyPostData/Postings'
 
 export default function ProfileScreen({navigation}) {
     return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView >
 
+      <View style={styles.container}>
       <Image source = {require('./ProfileComponents/Logo.png')} 
       style= {styles.Image} />
 
@@ -16,7 +18,21 @@ export default function ProfileScreen({navigation}) {
 
       <Info style={styles.Info}/>
 
+
+      </View>
+
       <Edit/>
+
+      <ScrollView style = {styles.PostingsContainer}>
+        {Postings.map((posting,index) => (
+          <Posting posting = {posting} key = {index} />
+        ))}
+        
+
+      </ScrollView>
+
+     
+      
 
     </SafeAreaView>
 
@@ -47,6 +63,17 @@ const styles = StyleSheet.create({
 
 
   },
+
+  PostingsContainer:{
+    PostingContainer:{
+    // margin:10,
+    // flexDirection: 'column',
+    // justifyContent:'space-around',
+    // alignItems: 'center',
+
+
+  },
+  }
 
 
 })
