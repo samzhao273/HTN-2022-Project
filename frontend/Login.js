@@ -5,6 +5,39 @@ import { useState } from 'react';
  
 export default function login() {
   const [isSecureEntry, setIsSecureEntry] = useState(true);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
+
+  const Login = () => {
+    const payload = {
+      email,
+      password,
+    };
+    fetch(`http://localhost:2000/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    }).then(async res => { 
+      try {
+          console.log(await res.text());
+          const jsonRes = await res.json()
+          if (res.status === 200) {
+              setMessage(jsonRes.message);
+          } else {
+              setMessage(jsonRes.message);
+          }
+      } catch (err) {
+          console.log(err);
+      };
+  })
+  .catch(err => {
+      console.log(err);
+  });
+  }
+
   return (
     <SafeAreaView style={styles.root}>
       <Text style = {styles.text}> WASTE DOWN</Text>
@@ -17,26 +50,32 @@ export default function login() {
       <Text style = {styles.LogInText}> Log in </Text>
 
       <View style = {styles.emailInput}>
-        <TextInput placeholder='Email'  />
+        <TextInput placeholder='Email'  
+            onChangeText = {setEmail}
+        />
+
       </View>
 
       <View style = {styles.passwordInput}>
-        <TextInput placeholder='Password'  
+        <TextInput placeholder='Password' 
+            onChangeText = {setPassword}
             secureTextEntry={isSecureEntry}/>
       </View>
-
 
       <TouchableOpacity 
         onPress={() => { console.warn('Show Password Pressed') }}
         style = {styles.showPasswordButton} >
         <Text style = {styles.buttonShowPass}>Show</Text>  
       </TouchableOpacity>
-     
 
       <TouchableOpacity 
         style={styles.buttonLogin} 
-        onPress={() => { console.warn('login pressed') }} >
-        <Text style={styles.buttonText}>Log in</Text> 
+        onPress={() => { 
+          console.warn('login pressed') 
+          Login()
+        }} >
+        <Text style={styles.buttonText}>Log in</Text>
+
       </TouchableOpacity>
 
 

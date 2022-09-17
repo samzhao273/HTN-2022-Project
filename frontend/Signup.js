@@ -12,7 +12,6 @@ export default function signup() {
   const [message, setMessage] = useState('');
 
   const onSignUp = () => {
-    console.log("AAAAAA")
     const payload = {
       username,
       email,
@@ -27,8 +26,10 @@ export default function signup() {
       }).then(async res => { 
         try {
             console.log(await res.text());
-         
+            const jsonRes = await res.json()
             if (res.status === 200) {
+                setMessage(jsonRes.message);
+            } else {
                 setMessage(jsonRes.message);
             }
         } catch (err) {
