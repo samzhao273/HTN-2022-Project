@@ -2,13 +2,29 @@ import React from "react"
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, SafeAreaView, Image ,TextInput, TouchableOpacity} from 'react-native';
 import { useState } from 'react';
- 
-export default function login() {
+import Profile from './MainApp/screens/ProfileScreen'
+import MainContainer from "./MainApp/MainContainer";
+import { useNavigation } from "@react-navigation/native";
+
+export default function login({navigation}) {
   const [isSecureEntry, setIsSecureEntry] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const [auth, setAuth] = useState(null);
+  // const navigation = useNavigation();
 
+  // const Profile = () => {
+  //   console.log('profile function is working');
+  //   return(
+  //     <View>
+  //       <Profile/>
+  //     </View>
+  //   )
+
+  // }
+
+   
   const Login = () => {
     const payload = {
       email,
@@ -25,7 +41,8 @@ export default function login() {
           console.log(await res.text());
           const jsonRes = await res.json()
           if (res.status === 200) {
-              setMessage(jsonRes.message);
+              setAuth(true);
+              console.log('login auth worked');
           } else {
               setMessage(jsonRes.message);
           }
@@ -41,7 +58,7 @@ export default function login() {
   return (
     <SafeAreaView style={styles.root}>
       <Text style = {styles.text}> WASTE DOWN</Text>
-      
+      <Text>{message}</Text>
       <Image
         style={styles.image}
         source={require('./assets/man.png')}
@@ -70,9 +87,15 @@ export default function login() {
 
       <TouchableOpacity 
         style={styles.buttonLogin} 
-        onPress={() => { 
-          console.warn('login pressed') 
+        onPress={() =>  {
+          console.warn('login pressed')
           Login()
+          if (setAuth) {
+            navigation.navigate('MainContainer'
+            )
+            console.log('profile screen should be up')
+          }
+ 
         }} >
         <Text style={styles.buttonText}>Log in</Text>
 
@@ -80,7 +103,7 @@ export default function login() {
 
 
       <TouchableOpacity 
-        onPress={() => { console.warn('sign up pressed') }} 
+        onPress={() => { navigation.navigate('SignUp')}} 
         style = {styles.buttonRegister} >
         <Text style = {styles.buttonText}>Sign Up</Text>
       </TouchableOpacity>

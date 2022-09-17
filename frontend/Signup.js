@@ -3,13 +3,14 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, SafeAreaView, Image ,TextInput, TouchableOpacity} from 'react-native';
 import { useState } from 'react';
  
-export default function signup() {
+export default function signup({navigation}) {
 
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const [message, setMessage] = useState('');
+  const [auth, setAuth] = useState(null);
 
   const onSignUp = () => {
     const payload = {
@@ -28,7 +29,8 @@ export default function signup() {
             console.log(await res.text());
             const jsonRes = await res.json()
             if (res.status === 200) {
-                setMessage(jsonRes.message);
+                setAuth(true);
+                console.log('login auth worked');
             } else {
                 setMessage(jsonRes.message);
             }
@@ -65,6 +67,7 @@ export default function signup() {
     <SafeAreaView style={styles.container}>
 
     <Text style = {styles.text}> WASTE DOWN</Text>
+    <Text>{message}</Text>
       
       <Image
         style={styles.image}
@@ -102,8 +105,10 @@ export default function signup() {
 
         <TouchableOpacity 
         onPress={() => {
-          console.warn('sign up pressed')
+          // console.warn('sign up pressed')
           onSignUp();
+          navigation.navigate('Login');
+          
         }} 
         style = {styles.buttonRegister}
         >

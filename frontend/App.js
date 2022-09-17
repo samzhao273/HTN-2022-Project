@@ -5,10 +5,11 @@ import * as React from 'react';
 import MainContainer from './MainApp/MainContainer'
 import Login from "./Login.js"
 import Signup from "./Signup.js"
+import Navigation from './MainApp/StackNavigation/Navigation';
 
 export default function App() {
   return (
-    <Login/>
+    <Navigation/>
   );
 }
 
