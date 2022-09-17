@@ -11,9 +11,9 @@ const Posting = ({posting}) => {
 
     return(
         <View style={styles.PostingContainer}>
-            <Divider width={2} orientation = 'horizontal' />
-            <PostingHeader posting = {posting}/>
+            {/* <Divider width={2} orientation = 'horizontal' /> */}
             <PostingImage posting = {posting}/>
+            <PostingHeader posting = {posting}/>
             <PostingSize posting = {posting} />
             <PostingDistance posting = {posting} />
             <PostingType posting = {posting}/> 
@@ -29,19 +29,19 @@ const PostingHeader = () => (
     <View style ={styles.PostingHeader}>
 
         <TouchableHighlight onPress = {() => {alert('delete button')}}>
-            <View>
-                <Ionicons name = "trash"></Ionicons>
+            <View style={styles.Trash}>
+                <Ionicons name = "trash" size={20}></Ionicons>
             </View>
         </TouchableHighlight>
-
-    
 
     </View>
 )
 
 const PostingImage = ({posting}) => (
     // posting.image
-    <Image source={require('./favicon.png')} />
+    <View style={styles.Posting}>
+        <Image source={require('./favicon.png')} />
+    </View>
 )
 
 const PostingType = ({posting}) => (
@@ -69,20 +69,33 @@ const PostingDistance= ({posting}) => (
 
 const styles = StyleSheet.create({
     PostingContainer:{
-        margin:10,
+        // margin:10,
+        backgroundColor: '#D9D9D9',
+        // flex: 1,
         flexDirection: 'column',
-        justifyContent:'space-around',
-        alignItems: 'center',
+        // justifyContent:'space-around',
+        // alignItems: 'center',
+        borderRadius: 20,
+        marginBottom: 15,
+        marginLeft: 10,
+        width: 170,
+        height: 265
 
 
     },
 
     Posting:{
-
+        position: 'absolute'
     },
 
     PostingHeader:{
         flexDirection:'row',
+    },
+
+    Trash: {
+        position: 'absolute',
+        marginTop: 2,
+        marginLeft: 2
     }
 
 })

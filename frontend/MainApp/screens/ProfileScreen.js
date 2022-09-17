@@ -1,5 +1,5 @@
 import * as Reach from 'react';
-import { StyleSheet, Text, View, SafeAreaView, Image ,TextInput, TouchableOpacity, ScrollView} from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, Image ,TextInput, TouchableOpacity, ScrollView, Dimensions} from 'react-native';
 import Info from './ProfileComponents/Info';
 import Edit from './ProfileComponents/Edit';
 import Posting from './GeneralComponents/Posting';
@@ -44,7 +44,8 @@ export default function ProfileScreen({navigation}) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor:'white'
+    backgroundColor:'white',
+    height:'100%'
   },
 
   Image: {
@@ -62,8 +63,12 @@ const styles = StyleSheet.create({
   },
 
   PostingContainer:{
+    flex:1,
+    flexDirection:'row',
+    flexWrap:'wrap',
     top: 25,
-
+    paddingLeft: 10,
+    paddingRight: 10,
   },
 
   Button: {
