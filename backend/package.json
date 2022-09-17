@@ -6,7 +6,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js & cd ../frontend && npm run ios"
+    "start": "node map_server.js & node server.js & cd ../frontend && npm run ios"
   },
   "author": "",
   "license": "ISC",
