@@ -16,7 +16,7 @@ export default function CartScreen({ navigation }) {
             source={require("./ProfileComponents/man.png")}
             style={styles.image}
           />
-          <Text style={styles.title}>Your carts</Text>
+          <Text style={styles.title}>Your cart</Text>
         </View>
       <ScrollView>
         <View style={styles.posting}>
