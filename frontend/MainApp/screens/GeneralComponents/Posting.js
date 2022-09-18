@@ -19,7 +19,6 @@ const Posting = ({posting}) => {
             <View style={styles.DescriptionContainer}> 
                 <View style={styles.GenderDistance}>
                     <PostingGender posting = {posting} />
-                    <PostingDistance posting = {posting} /> 
                 </View>
                
                 <View style={styles.TitleAlign}>
