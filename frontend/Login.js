@@ -90,9 +90,8 @@ export default function login({navigation}) {
         onPress={() =>  {
           console.warn('login pressed')
           Login()
-          if (setAuth) {
-            navigation.navigate('MainContainer'
-            )
+          if (auth) {
+            navigation.navigate('MainContainer')
             console.log('profile screen should be up')
           }
  

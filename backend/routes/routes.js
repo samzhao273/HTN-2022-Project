@@ -9,7 +9,7 @@ var con = mysql.createPool({
        host: "localhost",
        user: "root",
        password: "12345678!",
-       database: "sys"
+       database: "wastedb"
      });
      
     //  con.connect(function(err) {
@@ -76,7 +76,7 @@ router.post("/login", (req, res)=> {
           } 
           else {
           console.log("---------> Password Incorrect")
-          return res.status(401).json({ message: `${email} is logged in!`})
+          return res.status(401).json({ message: `wrong password`})
           } //end of bcrypt.compare()
         }//end of User exists i.e. results.length==0
        }) //end of connection.query()

@@ -26,11 +26,9 @@ export default function signup({navigation}) {
         body: JSON.stringify(payload)
       }).then(async res => { 
         try {
-            console.log(await res.text());
             const jsonRes = await res.json()
             if (res.status === 200) {
-                setAuth(true);
-                console.log('login auth worked');
+                console.log('signup auth worked');
             } else {
                 setMessage(jsonRes.message);
             }
@@ -41,25 +39,6 @@ export default function signup({navigation}) {
     .catch(err => {
         console.log(err);
     });
-
-    // const request = {
-    //   method: 'POST',
-    //   headers: { Accept: 'application/json',
-    //             'Content-Type' : 'application/json'},
-    //   body: JSON.stringify(payload)
-    //   }
-    //   console.log(request)
-    //   fetch(`http://localhost:2000/signup`, request)
-    //   .then(async response => {
-    //     const isJson = response.headers.get('content-type')?.includes('application/json');
-    //     const data = isJson && await response.json();
-    //     if (!response.ok) {
-    //       const error = (data && data.message) || response.status;
-    //       return Promise.reject(error);
-    //     }
-    //   }).catch(error => {
-    //     console.error("there was an error", error)
-    //   });
     }
   
 
@@ -107,7 +86,9 @@ export default function signup({navigation}) {
         onPress={() => {
           // console.warn('sign up pressed')
           onSignUp();
+          if (auth) {
           navigation.navigate('Login');
+          }
           
         }} 
         style = {styles.buttonRegister}
