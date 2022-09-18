@@ -4,7 +4,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const Add = ({navigation}) => {
     return(
-        <TouchableHighlight onPress = {() => {navigation.navigate('AddPostScreen')}}>
+        <TouchableHighlight onPress = {() => {navigation.navigate('AddPostScreen')}}
+        style={styles.Touchable}>
             <View>
                 <Ionicons name = "md-add-circle" size={40} color='#55B3AE'></Ionicons>
             </View>
@@ -14,6 +15,7 @@ const Add = ({navigation}) => {
 }
 
 const styles = StyleSheet.create({
+
     
 })
 

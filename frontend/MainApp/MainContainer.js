@@ -33,7 +33,7 @@ export default function MainContainer() {
         <NavigationContainer independent = {true}
         >
             <Tab.Navigator
-            initialRouteName={cartName}
+            initialRouteName={navigation}
             screenOptions={({route}) => ({
                 tabBarIcon:({focused,color,size}) => {
                     let iconName;

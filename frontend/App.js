@@ -9,7 +9,7 @@ import Navigation from './MainApp/StackNavigation/Navigation';
 
 export default function App() {
   return (
-    <Navigation/>
+    <MainContainer/>
   );
 }
 

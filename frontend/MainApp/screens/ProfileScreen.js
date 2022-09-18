@@ -36,7 +36,6 @@ export default function ProfileScreen({navigation}) {
 
           </View>
 
-        {/* <Text onPress={() => alert('this is the Profile Screen')}>ProfileScreen</Text> */}
 
           <View style={styles.PostingContainer}>
             {Postings.map((posting,index) => (
