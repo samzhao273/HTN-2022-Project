@@ -1,19 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import { View, Image, StyleSheet, Text } from "react-native";
 import Cart from "./CartComponents/Cart";
 
 export default function CartScreen({ navigation }) {
-
   [clothes, setClothes] = useState([]);
 
-  useEffect(() => {
-
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <View style={styles.container}>
       <View style={styles.top}>
-        <Image 
+        <Image
           source={require("./ProfileComponents/man.png")}
           style={styles.image}
         />
@@ -23,9 +20,10 @@ export default function CartScreen({ navigation }) {
         {/* {clothes.map(() => {
 
         })} */}
-        <Cart type="shirt"/>
-        <Cart type="hoodie"/>
-        <Cart type="shorts"/>
+        <Cart type="T-Shirt / Zara / XXL" />
+        <Cart type="Hoodie / Supreme / L" />
+        <Cart type="Shorts / Essentials / L" />
+        <Cart type="Pants / Levi's / L" />
       </View>
     </View>
   );
@@ -47,7 +45,7 @@ const styles = StyleSheet.create({
     top: -336,
   },
   title: {
-    position:'absolute',
+    position: "absolute",
     color: "#000000",
     top: -305,
     left: -150,
@@ -57,6 +55,6 @@ const styles = StyleSheet.create({
     direction: "rtl",
     paddingTop: -10,
     justifyContent: "space-evenly",
-    position:'absolute',
+    position: "absolute",
   },
 });
