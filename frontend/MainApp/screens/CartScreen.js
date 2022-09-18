@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import { View, Image, StyleSheet, Text } from "react-native";
+import { View, Image, StyleSheet, Text, ScrollView } from "react-native";
 import Cart from "./CartComponents/Cart";
+import Posting from "./GeneralComponents/Posting";
+import { Postings } from "./ProfileComponents/DummyPostData/Postings";
 
 export default function CartScreen({ navigation }) {
   [clothes, setClothes] = useState([]);
@@ -10,21 +12,22 @@ export default function CartScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.top}>
-        <Image
-          source={require("./ProfileComponents/man.png")}
-          style={styles.image}
-        />
-        <Text style={styles.title}>Your carts</Text>
-      </View>
-      <View>
-        {/* {clothes.map(() => {
+          <Image
+            source={require("./ProfileComponents/man.png")}
+            style={styles.image}
+          />
+          <Text style={styles.title}>Your carts</Text>
+        </View>
+      <ScrollView>
+        <View style={styles.posting}>
+          {/* {clothes.map(() => {
 
-        })} */}
-        <Cart type="T-Shirt / Zara / XXL" />
-        <Cart type="Hoodie / Supreme / L" />
-        <Cart type="Shorts / Essentials / L" />
-        <Cart type="Pants / Levi's / L" />
-      </View>
+          })} */}
+          {Postings.map((posting) => (
+            <Posting posting={posting} />
+          ))}
+        </View>
+      </ScrollView>
     </View>
   );
 }
@@ -56,5 +59,14 @@ const styles = StyleSheet.create({
     paddingTop: -10,
     justifyContent: "space-evenly",
     position: "absolute",
+  },
+  posting: {
+    flex:1,
+    flexDirection:'row',
+    flexWrap:'wrap',
+    top: 40,
+    paddingLeft: 10,
+    paddingRight: 10,
+    marginTop: 100
   },
 });
