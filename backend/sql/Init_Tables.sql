@@ -15,7 +15,6 @@ CREATE TABLE `wastedb`.`post` (
   `brand` VARCHAR(45) NULL,
   `size` VARCHAR(45) NULL,
   `gender` VARCHAR(45) NULL,
-  `tags` VARCHAR(255) NULL,
   `caption` VARCHAR(255) NULL,
   PRIMARY KEY (`id`),
 FOREIGN KEY (`user_id`) REFERENCES `wastedb`.`user`(`user_id`));
