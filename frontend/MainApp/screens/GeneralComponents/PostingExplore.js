@@ -58,7 +58,7 @@ const PostingHeader = () => (
 )
 
 const PostingImage = ({postingExplore}) => (
-        <Image source={require('./shirt.jpg')} style={styles.PostingImage} />
+        <Image source={require('./final.png')} style={styles.PostingImage} />
 )
 
 // title

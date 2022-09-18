@@ -3,6 +3,9 @@ import { StyleSheet, Text, View, SafeAreaView, Image ,TextInput, TouchableOpacit
 import Info from './ProfileComponents/Info';
 import Edit from './ProfileComponents/Edit';
 import Posting from './GeneralComponents/Posting';
+import Posting2 from './GeneralComponents/Posting';
+import Posting3 from './GeneralComponents/Posting';
+import Posting4 from './GeneralComponents/Posting';
 import Add from './ProfileComponents/Add';
 import {Postings} from './ProfileComponents/DummyPostData/Postings'
 
@@ -32,6 +35,10 @@ export default function ProfileScreen({navigation}) {
           <View style={styles.PostingContainer}>
             {Postings.map((posting,index) => (
               <Posting posting = {posting} key = {index} />
+              // <Posting posting2 = {posting} key = {index} />,
+              // <Posting posting3 = {posting} key = {index} />,
+              // <Posting posting4 = {posting} key = {index} />
+
 
             ))}
             

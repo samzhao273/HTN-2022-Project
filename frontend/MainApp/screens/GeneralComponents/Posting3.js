@@ -68,7 +68,7 @@ const PostingHeader = () => (
 
 
 const PostingImage = ({posting}) => {
-        return <Image source={require('./final.png')} style={styles.PostingImage} />
+        return <Image source={require('./levisJeans.jpg')} style={styles.PostingImage} />
 
 }
 // title

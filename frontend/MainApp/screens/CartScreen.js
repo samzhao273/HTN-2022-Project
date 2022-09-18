@@ -4,6 +4,8 @@ import Posting from "./GeneralComponents/Posting";
 import { Postings } from "./ProfileComponents/DummyPostData/Postings";
 import PostingExplore from "./GeneralComponents/PostingExplore";
 import { PostingsExplore } from "./ProfileComponents/DummyPostData/PostingsExplore";
+import {CartData} from "./ProfileComponents/DummyPostData/CartData";
+
 export default function CartScreen({ navigation }) {
   [clothes, setClothes] = useState([]);
 
@@ -20,8 +22,8 @@ export default function CartScreen({ navigation }) {
         </View>
       <ScrollView>
         <View style={styles.posting}>
-            {PostingsExplore.map((postingExplore,index) => (
-              <PostingExplore postingExplore = {postingExplore} key = {index} />
+            {CartData.map((posting,index) => (
+              <Posting posting = {posting} key = {index} />
             ))}
         </View>
       </ScrollView>
