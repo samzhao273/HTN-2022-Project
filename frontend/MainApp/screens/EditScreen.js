@@ -4,6 +4,39 @@ import { Button } from 'react-native-elements';
 
 
 export default function EditScreen({navigation}) {
+    const [username, setUsername] = useState('')
+    const [weight, setWeight] = useState('')
+    const [height, setHeight] = useState('')
+
+    const updateProfile = () => {
+        payload = {
+            username,
+            weight,
+            height
+        }
+        fetch(`http://localhost:2000/updateProfile`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          }).then(async res => { 
+            try {
+                const jsonRes = await res.json()
+                if (res.status === 200) {
+                    console.log('updated profile!');
+                } else {
+                    setMessage(jsonRes.message);
+                    console.log(jsonRes.message);
+                }
+            } catch (err) {
+                console.log(err);
+            };
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    }
     return (
         <SafeAreaView>
 
@@ -21,15 +54,15 @@ export default function EditScreen({navigation}) {
         <View style={styles.container}>
             <TextInput style={styles.TextInput}
             placeholder="Username"
-            />
-            <TextInput style={styles.TextInput}
-            placeholder="Postal Code"
+            onChangeText = {setUsername}
             />
             <TextInput style={styles.TextInput}
             placeholder="Weight"
+            onChangeText = {setWeight}
             />
             <TextInput style={styles.TextInput}
             placeholder="Height"
+            onChangeText = {setHeight}
             />
 
             
@@ -37,7 +70,10 @@ export default function EditScreen({navigation}) {
         </View >
 
             <TouchableOpacity 
-                onPress={() => { console.warn('edit profile pressed')}} 
+                onPress={() => { 
+                    console.warn('edit profile pressed')
+                    updateProfile()
+            }} 
                 style = {styles.EditProfile} >
                 <Text style = {styles.buttonText}>Done</Text>
             </TouchableOpacity>

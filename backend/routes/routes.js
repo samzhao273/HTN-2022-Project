@@ -28,8 +28,8 @@ router.post('/signup', (req, res, next) => {
             const sqlSearch = "SELECT * FROM user WHERE user.username = ?"
             const search_query = mysql.format(sqlSearch,[username])      
             
-            const sqlInsert = "INSERT INTO user VALUES (0,?,?,?)"
-            const insert_query = mysql.format(sqlInsert,[username, email, password])
+            const sqlInsert = "INSERT INTO user VALUES (0,?,?,?,?,?)"
+            const insert_query = mysql.format(sqlInsert,[username, email, password, null, null])
 
       await connection.query (search_query, async (err, result) => {
         if (err) throw (err)
@@ -140,5 +140,20 @@ router.post("/login", (req, res)=> {
   });
 }
   );
+
+  router.post('/updateProfile', (req, res) => {
+    const username = req.body.username
+    const height = req.body.height
+    const weight = req.body.weight
+
+    con.getConnection(async (err, connection) => {
+        const update_query = "UPDATE user SET username = ?, height = ?, weight = ?"
+        const filled_update_query = mysql.format(update_query,[username,height,weight])
+        await connection.query(filled_update_query, async (err, result) => {
+          if (err) throw (err)
+          return res.status(200).json({message: 'Successful Update!'})
+        })      
+    })
+  })
 
 export default router
