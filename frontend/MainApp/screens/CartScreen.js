@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { View, Image, StyleSheet, Text, ScrollView } from "react-native";
 import Posting from "./GeneralComponents/Posting";
 import { Postings } from "./ProfileComponents/DummyPostData/Postings";
-
+import PostingExplore from "./GeneralComponents/PostingExplore";
+import { PostingsExplore } from "./ProfileComponents/DummyPostData/PostingsExplore";
 export default function CartScreen({ navigation }) {
   [clothes, setClothes] = useState([]);
 
@@ -19,12 +20,9 @@ export default function CartScreen({ navigation }) {
         </View>
       <ScrollView>
         <View style={styles.posting}>
-          {/* {clothes.map(() => {
-
-          })} */}
-          {Postings.map((posting) => (
-            <Posting posting={posting} />
-          ))}
+            {PostingsExplore.map((postingExplore,index) => (
+              <PostingExplore postingExplore = {postingExplore} key = {index} />
+            ))}
         </View>
       </ScrollView>
     </View>

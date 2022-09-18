@@ -1,17 +1,23 @@
 import * as Reach from 'react';
-import{View, Text,SafeAreaView, StyleSheet, Image, ScrollView} from 'react-native';
+import{View, Text,SafeAreaView, StyleSheet, Image, ScrollView, TextInput} from 'react-native';
 import {PostingsExplore} from './ProfileComponents/DummyPostData/PostingsExplore';
 import PostingExplore from './GeneralComponents/PostingExplore';
 
 export default function ExploreScreen({navigation}) {
     return (
-    <SafeAreaView>
-      <Image source={require('./GeneralComponents/shirt.jpg')} />
-      <Text>Explore</Text>
+    <SafeAreaView style={styles.Container}>
 
+      <View style={styles.HeadingContainer}>
+        <Image source = {require('./ProfileComponents/man.png')} style= {styles.Logo} />
+        <Text style={styles.title}>Explore</Text>
+      </View>
+
+      <View style = {styles.SearchBar}>
+          <TextInput placeholder='Search'/>
+      </View>
 
       <ScrollView showsVerticalScrollIndicator={false}>
-        <Image source = {require('./ProfileComponents/man.png')} style= {styles.Image} />
+       
 
           
 
@@ -19,8 +25,6 @@ export default function ExploreScreen({navigation}) {
             {PostingsExplore.map((postingExplore,index) => (
               <PostingExplore postingExplore = {postingExplore} key = {index} />
             ))}
-
-
           </View>
         
       </ScrollView>
@@ -33,6 +37,18 @@ export default function ExploreScreen({navigation}) {
 }
 
 const styles = StyleSheet.create({
+  Container: {
+    backgroundColor:'white',
+    height:'100%'
+  },
+
+  // HeadingContainer: {
+  //   flex:1,
+  //   flexDirection:'row',
+  //   justifyContent: 'space-between',
+  //   // direction: "rtl",
+  // },
+
   PostingContainer:{
     flex:1,
     flexDirection:'row',
@@ -40,6 +56,40 @@ const styles = StyleSheet.create({
     top: 40,
     paddingLeft: 10,
     paddingRight: 10,
+    paddingTop: 100
+  },
+
+  title: {
+    position: "absolute",
+    color: "#000000",
+    fontSize: 30,
+    top: 40,
+    right: 50
+  },
+
+  SearchBar: {
+    position: 'absolute',
+    height: 30,
+    width: 322,
+    left: 34,
+    top: 130,
+    paddingLeft: 10,
+    backgroundColor: '#F6F6F6',
+    borderRadius: 40,
+    borderWidth: 1,
+    borderColor: "#E8E8E8",
+    justifyContent:'center',
+    paddingHorizontal: 10,
+    marginBottom: 5
+  },
+
+  Logo: {
+    marginTop: -90,
+    width: 40,
+    resizeMode: 'contain',
+    left:45,
+    position: 'absolute',
+    // top: -336
   },
 
 })
