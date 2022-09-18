@@ -53,7 +53,7 @@ const Map = () => {
           ...delta,
         }}
         title="You are here!"
-        pinColor="#55B3AE"
+        image={require('../../../assets/current-icon.png')}
       />
     );
   }, [location]);
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
   },
   map_container: {
-    height: 700,
+    height: 800,
     width: 400,
     justifyContent: "flex-start",
     alignItems: "center",
