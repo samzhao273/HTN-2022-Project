@@ -26,11 +26,11 @@ export default function ProfileScreen({navigation}) {
                   <Ionicons name = "md-add-circle" size={40} color='#55B3AE'></Ionicons>
               </View>
             </TouchableHighlight> */}
-            <Add/>
+            <Add navigation={navigation}/>
           </View>
 
           <View style={styles.Button}>
-            <Edit/>
+            <Edit navigation={navigation}/>
             
 
           </View>

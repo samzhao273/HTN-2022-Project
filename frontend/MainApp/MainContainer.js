@@ -14,7 +14,7 @@ import Edit from './screens/ProfileComponents/Edit';
 import EditScreen from './screens/EditScreen';
 import Add from './screens/ProfileComponents/Add';
 import AddPostScreen from './screens/AddPostScreen'
-import Navigation from './screens/ProfileComponents/ProfileNavigation/Navigation';
+import Navigation from './ProfileNavigation/Navigation';
 
 
 //Screen names
