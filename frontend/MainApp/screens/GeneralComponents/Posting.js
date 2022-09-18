@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import {NavigationContainer} from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -7,6 +7,7 @@ import {Divider} from 'react-native-elements'
 import { Postings } from '../ProfileComponents/DummyPostData/Postings';
 
 const Posting = ({posting}) => {
+
    
 
     return(
@@ -48,10 +49,28 @@ const PostingHeader = () => (
     </View>
 )
 
-const PostingImage = ({posting}) => (
-        <Image source={require('./shirt.jpg')} style={styles.PostingImage} />
-)
 
+    // const avatarImage=(avatar) => {
+    //     switch (avatar) {
+    //       case "shirt":
+    //         return require('./uniqloShirt.jpg');
+    //       case "sweater":
+    //         return require('./essentialsHoodie.jpg');
+    //       case "htn":
+    //         return require('./htnShirt.jpg');
+    //       case "levis":
+    //         return require('./levisJeans.jpg');
+    //       default:
+    //         return require('./uniqloShirt.jpg');
+    //     }
+    //   }
+
+
+
+const PostingImage = ({posting}) => {
+        return <Image source={require('./shirt.jpg')} style={styles.PostingImage} />
+
+}
 // title
 const PostingDescription = ({posting}) => (
     <Text style={styles.DescriptionText}>
@@ -78,11 +97,6 @@ const PostingSize= ({posting}) => (
     </Text>
 )
 
-const PostingDistance= ({posting}) => (
-    <Text style={styles.DistanceText}>
-        {posting.distance}
-    </Text>
-)
 
 const PostingGender= ({posting}) => (
     <Text style={styles.GenderDistanceText}>

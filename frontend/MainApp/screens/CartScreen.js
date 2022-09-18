@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { View, Image, StyleSheet, Text, ScrollView } from "react-native";
-import Cart from "./CartComponents/Cart";
 import Posting from "./GeneralComponents/Posting";
 import { Postings } from "./ProfileComponents/DummyPostData/Postings";
 

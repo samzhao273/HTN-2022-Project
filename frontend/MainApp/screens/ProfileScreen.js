@@ -40,7 +40,12 @@ export default function ProfileScreen({navigation}) {
           <View style={styles.PostingContainer}>
             {Postings.map((posting,index) => (
               <Posting posting = {posting} key = {index} />
+
             ))}
+            
+
+
+
           </View>
         </View>
       </ScrollView>

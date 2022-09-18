@@ -1,10 +1,10 @@
 import { View, Text, Image} from 'react-native'
-import React from 'react'
-
+import React, { Component } from 'react'
 
 export const Postings =[
     {
-        imageUrl: <Image source={require('./favicon.png')} />,
+        // imageUrl: './shirt.jpg',
+        imageUrl: 'shirt',
         gender: 'M',
         type: 'T-Shirt',
         brand: 'Uniqlo',
@@ -14,7 +14,7 @@ export const Postings =[
     },
 
     {
-        imageUrl: <Image source={require('./favicon.png')} />,
+        imageUrl: 'sweater',
         gender: 'U',
         type: 'Sweater',
         brand: 'Essentials',
@@ -24,7 +24,7 @@ export const Postings =[
     },
 
     {
-        imageUrl: <Image source={require('./favicon.png')} />,
+        imageUrl: 'levis',
         gender: 'M',
         type: 'Pants',
         brand: 'Levis',
@@ -33,7 +33,7 @@ export const Postings =[
 
     },
     {
-        imageUrl: <Image source={require('./favicon.png')} />,
+        imageUrl: 'htn',
         gender: 'U',
         type: 'T-Shirt',
         brand: 'Gildan',
