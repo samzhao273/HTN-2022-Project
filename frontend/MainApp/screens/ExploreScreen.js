@@ -6,6 +6,7 @@ import PostingExplore from './GeneralComponents/PostingExplore';
 export default function ExploreScreen({navigation}) {
     return (
     <SafeAreaView style={styles.Container}>
+      <ScrollView showsVerticalScrollIndicator={false}>
 
       <View style={styles.HeadingContainer}>
         <Image source = {require('./ProfileComponents/man.png')} style= {styles.Logo} />
@@ -16,8 +17,7 @@ export default function ExploreScreen({navigation}) {
           <TextInput placeholder='Search'/>
       </View>
 
-      <ScrollView showsVerticalScrollIndicator={false}>
-       
+      
 
           
 
@@ -53,17 +53,17 @@ const styles = StyleSheet.create({
     flex:1,
     flexDirection:'row',
     flexWrap:'wrap',
-    top: 40,
+    top: 100,
     paddingLeft: 10,
     paddingRight: 10,
-    paddingTop: 100
+    paddingTop: 80
   },
 
   title: {
     position: "absolute",
     color: "#000000",
     fontSize: 30,
-    top: 40,
+    top: 30,
     right: 50
   },
 
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     height: 30,
     width: 322,
     left: 34,
-    top: 130,
+    top: 100,
     paddingLeft: 10,
     backgroundColor: '#F6F6F6',
     borderRadius: 40,
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     borderColor: "#E8E8E8",
     justifyContent:'center',
     paddingHorizontal: 10,
-    marginBottom: 5
+    marginBottom: 0
   },
 
   Logo: {
