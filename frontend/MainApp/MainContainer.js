@@ -10,6 +10,7 @@ import CartScreen from './screens/CartScreen'
 import ExploreScreen from './screens/ExploreScreen'
 import MapScreen from './screens/MapScreen'
 
+
 //Screen names
 const profileName = 'Profile';
 const cartName = 'Cart';
