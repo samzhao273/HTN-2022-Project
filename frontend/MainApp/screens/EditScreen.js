@@ -1,7 +1,8 @@
 import * as React from 'react';
 import{View, Text, SafeAreaView, TextInput, Image, StyleSheet,TouchableOpacity} from 'react-native';
 import { Button } from 'react-native-elements';
-
+import { useState } from 'react';
+ 
 
 export default function EditScreen({navigation}) {
     const [username, setUsername] = useState('')
