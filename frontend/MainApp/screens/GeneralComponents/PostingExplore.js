@@ -12,27 +12,33 @@ const PostingExplore = ({postingExplore}) => {
    
 
     return(
-        <View style={styles.PostingContainer}>
-            {/* <Divider width={2} orientation = 'horizontal' /> */}
-            <PostingProfileUrl postingExplore = {postingExplore} />
-            <PostingImage postingExplore = {postingExplore}/>
-            <PostingHeader postingExplore = {postingExplore}/>
-            
-            <View style={styles.DescriptionContainer}> 
-                <View style={styles.GenderDistance}>
-                    <PostingGender postingExplore = {postingExplore} />
-                    <PostingDistance postingExplore = {postingExplore} /> 
-                </View>
-               
-                <View style={styles.TitleAlign}>
-                    <PostingType postingExplore = {postingExplore} /> 
-                    <Text style={styles.TitleText}> / </Text>
-                    <PostingBrand postingExplore = {postingExplore}/>
-                    <Text style={styles.TitleText}> / </Text>
-                    <PostingSize postingExplore = {postingExplore} />
-                </View>
+        <View style={styles.Container}>
+            <View style={styles.UserInfo}>
+                <Image source={require('./user.jpg')} style={{ width: 25, height: 25, borderRadius: 400/ 2}} />
+                <PostingUsername postingExplore = {postingExplore}/>
+            </View>
+            <View style={styles.PostingContainer}>
+                {/* <Divider width={2} orientation = 'horizontal' /> */}
+                <PostingProfileUrl postingExplore = {postingExplore} />
+                <PostingImage postingExplore = {postingExplore}/>
+                <PostingHeader postingExplore = {postingExplore}/>
+                
+                <View style={styles.DescriptionContainer}> 
+                    <View style={styles.GenderDistance}>
+                        <PostingGender postingExplore = {postingExplore} />
+                        <PostingDistance postingExplore = {postingExplore} /> 
+                    </View>
+                
+                    <View style={styles.TitleAlign}>
+                        <PostingType postingExplore = {postingExplore} /> 
+                        <Text style={styles.TitleText}> / </Text>
+                        <PostingBrand postingExplore = {postingExplore}/>
+                        <Text style={styles.TitleText}> / </Text>
+                        <PostingSize postingExplore = {postingExplore} />
+                    </View>
 
-                <PostingDescription postingExplore = {postingExplore}/>
+                    <PostingDescription postingExplore = {postingExplore}/>
+                </View>
             </View>
         </View>
 
@@ -59,6 +65,12 @@ const PostingImage = ({postingExplore}) => (
 const PostingDescription = ({postingExplore}) => (
     <Text style={styles.DescriptionText}>
         {postingExplore.description}
+    </Text>
+)
+
+const PostingUsername= ({postingExplore}) => (
+    <Text style={styles.Username}>
+        {postingExplore.profileName}
     </Text>
 )
 
@@ -100,12 +112,36 @@ const PostingProfileUrl = ({postingExplore}) => (
 
 
 const styles = StyleSheet.create({
+    Container: {
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        marginBottom: 60,
+        marginLeft: 10,
+        width: 170,
+        height: 265,
+    },
+
+    UserInfo: {
+        paddingLeft: 10,
+        paddingRight: 20,
+        paddingBottom: 10,
+        flexDirection: 'row',
+        // justifyContent: 'space-between',
+    },
+
+    Username: {
+        fontWeight: 'bold',
+        paddingTop: 4,
+        paddingLeft: 5,
+        fontSize: 13
+    },
+
     PostingContainer:{
         backgroundColor: '#D9D9D9',
         flexDirection: 'column',
         borderRadius: 20,
-        marginBottom: 15,
-        marginLeft: 10,
+        // marginBottom: 15,
+        // marginLeft: 10,
         width: 170,
         height: 265,
     },
@@ -127,9 +163,6 @@ const styles = StyleSheet.create({
         flex:1,
         flexDirection:'row',
         flexWrap:'wrap',
-        // top: 40,
-        // paddingLeft: 10,
-        // paddingRight: 10,
     },
 
     GenderDistance:{
@@ -137,10 +170,6 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         justifyContent: 'space-between',
         width: 150
-        // flexWrap:'wrap',
-        // top: 40,
-        // paddingLeft: 10,
-        // paddingRight: 10,
     },
 
     DistanceText:{
@@ -182,21 +211,11 @@ const styles = StyleSheet.create({
         top: 185,
         paddingLeft: 15,
         paddingTop: 10,
-        // opacity:0.5
-        // backgroundOpacity: 0.5
-        
-
-        // height: 50
-        // top: 40,
-        // paddingLeft: 10,
-        // paddingRight: 10,
     },
     
 
     Trash: {
         position: 'absolute',
-        // marginTop: 2,
-        // marginLeft: 2
         flexDirection:'row',
         justifyContent: 'space-between',
         marginTop: 10,
