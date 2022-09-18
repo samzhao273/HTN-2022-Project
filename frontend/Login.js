@@ -12,18 +12,6 @@ export default function login({navigation}) {
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   const [auth, setAuth] = useState(null);
-  // const navigation = useNavigation();
-
-  // const Profile = () => {
-  //   console.log('profile function is working');
-  //   return(
-  //     <View>
-  //       <Profile/>
-  //     </View>
-  //   )
-
-  // }
-
    
   const Login = () => {
     const payload = {
