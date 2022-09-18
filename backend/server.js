@@ -1,8 +1,8 @@
-var router = require('./routes/routes.js')
-const express = require('express');
-const port = 2000
-var bodyParser = require('body-parser')
+import router from "./routes/routes.js"
+import express from "express"
+import bodyParser from 'body-parser'
 
+const port = 2000
 var app = express();
 
 app.use(bodyParser.urlencoded({
