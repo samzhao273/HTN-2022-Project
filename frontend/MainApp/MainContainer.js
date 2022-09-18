@@ -9,22 +9,30 @@ import ProfileScreen from './screens/ProfileScreen'
 import CartScreen from './screens/CartScreen'
 import ExploreScreen from './screens/ExploreScreen'
 import MapScreen from './screens/MapScreen'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Edit from './screens/ProfileComponents/Edit';
+import EditScreen from './screens/EditScreen';
+import Add from './screens/ProfileComponents/Add';
+import AddPostScreen from './screens/AddPostScreen'
+import Navigation from './screens/ProfileComponents/ProfileNavigation/Navigation';
+
 
 //Screen names
 const profileName = 'Profile';
 const cartName = 'Cart';
 const exploreName = 'Explore';
 const mapName = 'Map';
+const navigation = 'Navigation';
 
 const Tab = createBottomTabNavigator();
-
+const Stack = createNativeStackNavigator();
 
 export default function MainContainer() {
     return(
         <NavigationContainer independent = {true}
         >
             <Tab.Navigator
-            initialRouteName={profileName}
+            initialRouteName={cartName}
             screenOptions={({route}) => ({
                 tabBarIcon:({focused,color,size}) => {
                     let iconName;
@@ -82,14 +90,21 @@ export default function MainContainer() {
                 <Tab.Screen name={exploreName} component = {ExploreScreen}/>
                 <Tab.Screen name={mapName} component = {MapScreen}/>
                 <Tab.Screen name={cartName} component = {CartScreen}/>
-                <Tab.Screen name={profileName} component = {ProfileScreen}/>
+                <Tab.Screen name = {'Profile'} component = {Navigation}/>
+
+                
+                
+
+
 
 
 
             </Tab.Navigator>
 
             
-            
+        
+
+
         </NavigationContainer>
         
     )

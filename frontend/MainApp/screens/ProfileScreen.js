@@ -1,10 +1,11 @@
 import * as Reach from 'react';
-import { StyleSheet, Text, View, SafeAreaView, Image ,TextInput, TouchableOpacity, ScrollView} from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, Image ,TextInput, TouchableOpacity, ScrollView, TouchableHighlight} from 'react-native';
 import Info from './ProfileComponents/Info';
 import Edit from './ProfileComponents/Edit';
 import Posting from './GeneralComponents/Posting';
 import Add from './ProfileComponents/Add';
 import {Postings} from './ProfileComponents/DummyPostData/Postings'
+import Ionicons from 'react-native-vector-icons'
 
 export default function ProfileScreen({navigation}) {
     return (
@@ -20,11 +21,18 @@ export default function ProfileScreen({navigation}) {
           </View>
 
           <View style={styles.Button}>
+            {/* <TouchableHighlight onPress = {() => {navigation.navigate('AddScreen')}}>
+              <View>
+                  <Ionicons name = "md-add-circle" size={40} color='#55B3AE'></Ionicons>
+              </View>
+            </TouchableHighlight> */}
             <Add/>
           </View>
 
           <View style={styles.Button}>
             <Edit/>
+            
+
           </View>
 
         {/* <Text onPress={() => alert('this is the Profile Screen')}>ProfileScreen</Text> */}
