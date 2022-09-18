@@ -17,6 +17,7 @@ import AddPostScreen from './screens/AddPostScreen'
 import Navigation from './ProfileNavigation/Navigation';
 
 
+
 //Screen names
 const profileName = 'Profile';
 const cartName = 'Cart';

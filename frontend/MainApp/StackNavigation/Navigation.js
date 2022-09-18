@@ -7,6 +7,7 @@ import SignUp from '../../Signup'
 import MainContainer from '../MainContainer'
 
 
+
 const Stack = createNativeStackNavigator();
 
 const Navigation = () => {

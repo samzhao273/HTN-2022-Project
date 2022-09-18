@@ -7,7 +7,7 @@ const Info = () => {
         <View style={styles.container}>
  
             <Image 
-                source={require('./favicon.png')}  // have to make this editable in back end - all these components
+                source={require('./user.jpg')}  // have to make this editable in back end - all these components
                 style={{ width: 83, height: 83, borderRadius: 400/ 2}} 
             />
 
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         justifyContent: 'center',
         textAlign: 'center',
-        marginTop: 20
+        marginTop: 10
 
     },
 
