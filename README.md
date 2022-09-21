@@ -19,5 +19,5 @@ Our application is created with React Native on the frontend, Node.js and Expres
 ## Challenges we ran into
 Our biggest challenge was integrating the backend with the frontend, where we store all of our user and clothing information in a database.
 
-## What's next for WasteDown?
+## What's next for Waste Down?
 WasteDown is intended to be a community platform that supports a wide variety of users. We wish to implement more features like chat/direct messaging feature, map's route finder, and a fast search algorithm. The sky's the limit—endless possibilities.
